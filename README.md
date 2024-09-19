@@ -1,2 +1,2 @@
 # Metarep
-A repository about making repositories
+A repository about making repositories!
