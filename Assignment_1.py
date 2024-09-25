@@ -11,7 +11,7 @@ def count_characters(file_path, plot_histogram):
     # counts = {}
     # for char in string_ascii_lowercase
     #   counts{char} = 0
-    with open(file_path) as input_file:
+    with open(file_path, encoding= "utf-8") as input_file:
         logger.debug(f"Reading input data from {file_path}...")
         data = input_file.read()
     logger.debug(f"Done, {len(data)} character(s) found.")
@@ -22,7 +22,7 @@ def count_characters(file_path, plot_histogram):
     logger.info(f"Character counts: {counts}")
     num_characters = sum(counts.values())
     logger.info(f"Total number of characters: {num_characters}")
-    for key, value in counts.item():
+    for key, value in counts.items():
         counts[key] = value / num_characters
     logger.info(f"Character frequencies: {counts}")
     if plot_histogram:
