@@ -16,15 +16,20 @@ class ProbabilityDensityDistribution:
     def plot(self):
         plt.plot(self._x, self._y, "o")
         x = np.linspace(self._x.min(), self._x.max(), 250)
-        plt.plot(x, self.evaluate(x))
+        plt.plot(x, self._spline(x))
 
     def integral(self, x1, x2):
-        pass
+        return self._spline.integral(x1, x2)
+    
+    def normalization(self):
+        return self.integral(self._x.min(), self._x.max())
 
 
 if __name__=="__main__":
     x = np.linspace(0., 1., 4)
     y = np.exp(x)
     pdf = ProbabilityDensityDistribution(x, y)
+    x0 = 0.5
+    print(pdf.integral(0., 1.))
     pdf.plot()
     plt.show()
