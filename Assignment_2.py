@@ -2,7 +2,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.interpolate import InterpolatedUnivariateSpline
 
-
 class ProbabilityDensityDistribution(InterpolatedUnivariateSpline):
 
     def __init__(self, x, y):
@@ -19,7 +18,6 @@ class ProbabilityDensityDistribution(InterpolatedUnivariateSpline):
     
     def normalization(self):
         return self.integral(self._x.min(), self._x.max())
-
 
 if __name__== "__main__":
     x = np.linspace(0., 1., 4)
