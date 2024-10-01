@@ -11,9 +11,6 @@ class ProbabilityDensityDistribution(InterpolatedUnivariateSpline):
         self._x = x
         self._y = y / norm
         super().__init__(self._x, self._y)
-        
-    def evaluate(self, x):
-        return self._spline(x)
 
     def plot(self):
         plt.plot(self._x, self._y, "o")
@@ -24,11 +21,12 @@ class ProbabilityDensityDistribution(InterpolatedUnivariateSpline):
         return self.integral(self._x.min(), self._x.max())
 
 
-if __name__=="__main__":
+if __name__== "__main__":
     x = np.linspace(0., 1., 4)
     y = np.exp(x)
     pdf = ProbabilityDensityDistribution(x, y)
     x0 = 0.5
+    print(np.exp(x0), pdf(x0))
     print(pdf.normalization())
     pdf.plot()
     plt.show()
